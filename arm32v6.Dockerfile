@@ -6,7 +6,6 @@ RUN apk add curl && curl -L ${QEMU_URL} | tar zxvf - -C . --strip-components 1
 
 FROM --platform=linux/arm/v6 caddy:builder AS builder2
 
-
 # Add QEMU
 COPY --from=builder1 qemu-arm-static /usr/bin
 
@@ -14,6 +13,6 @@ COPY --from=builder1 qemu-arm-static /usr/bin
 RUN caddy-builder \
     github.com/caddy-dns/cloudflare
 
-FROM caddy:latest
+FROM --platform=linux/arm/v6 caddy:latest
 
 COPY --from=builder2 /usr/bin/caddy /usr/bin/caddy

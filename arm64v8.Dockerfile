@@ -12,6 +12,6 @@ COPY --from=builder1 qemu-aarch64-static /usr/bin
 RUN caddy-builder \
     github.com/caddy-dns/cloudflare
 
-FROM caddy:latest
+FROM --platform=linux/arm64/v8 caddy:latest
 
 COPY --from=builder2 /usr/bin/caddy /usr/bin/caddy
