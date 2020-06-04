@@ -4,7 +4,7 @@ manifests:
     platform:
       architecture: amd64
       os: linux
-  - image: zottelbeyer/caddycloudflare:arm32v5
+  - image: zottelbeyer/caddycloudflare:arm32v6
     platform:
       architecture: arm
       os: linux
